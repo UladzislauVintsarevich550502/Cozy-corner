@@ -32,7 +32,7 @@ CREATE TABLE `order` (
   UNIQUE KEY `orderId_UNIQUE` (`orderId`),
   KEY `fk_order_client1_idx` (`clientId`),
   CONSTRAINT `fk_order_client1` FOREIGN KEY (`clientId`) REFERENCES `client` (`clientId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COMMENT='Таблица, использующаяся для хранения данных о заказе(кроме заказанных Продуктов).';
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 COMMENT='Таблица, использующаяся для хранения данных о заказе(кроме заказанных Продуктов).';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (39,NULL,'Not order',0.00,39),(49,NULL,'Not order',0.00,49),(75,NULL,'Not order',0.00,53);
+INSERT INTO `order` VALUES (16,NULL,'Not order',0.00,37),(39,NULL,'Not order',0.00,39);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-14 11:38:52
+-- Dump completed on 2018-02-09 22:01:56

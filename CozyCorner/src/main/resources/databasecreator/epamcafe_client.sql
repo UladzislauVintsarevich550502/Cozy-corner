@@ -31,11 +31,12 @@ CREATE TABLE `client` (
   `clientEmail` varchar(45) NOT NULL COMMENT 'Email адресс, использующийся для регистрации клиента в системе, оповещения о каких-либо событиях, а так же для востановления пароля.',
   `clientStatus` varchar(45) NOT NULL COMMENT 'Статус клиента в системе. Возможные статусы: Забанен, незабанен. Если на клиента наклыдавается бан, он не имеет возможности взаибодействовать с системой.',
   `clientPoint` decimal(10,2) DEFAULT '0.00' COMMENT 'Баллы Клиента, которые начисляются при заказе, используя данную систему. В случае если Клиент не забрал(оплатил) закаказ баллы снимаются, а клиент может быть заблокирован. Баллы могут использоваться в качестве бонусов(скидки).',
+  `clientAccount` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`clientId`),
   UNIQUE KEY `IdClient_UNIQUE` (`clientId`),
   UNIQUE KEY `ClientLogin_UNIQUE` (`clientLogin`),
   UNIQUE KEY `E-mail_UNIQUE` (`clientEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COMMENT='Данная таблица используется для хранения информации о Клиентах, зарегестрированных в системе.';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='Данная таблица используется для хранения информации о Клиентах, зарегестрированных в системе.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +45,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (39,'Владислав','Винцаревич','vladick','4D26A5BAFD3AE19DA1C6E8D5A5B1FFDDD096411A','vlad007xixixi@gmail.com','active',2.13),(49,'Анна','Чернова','chrnvann','4D9012B4A77A9524D675DAD27C3276AB5705E5E8','chrnvann@gmail.com','active',3.08),(53,'Илья','Печуро','illusha','4D26A5BAFD3AE19DA1C6E8D5A5B1FFDDD096411A','illusha@gmail.com','active',NULL);
+INSERT INTO `client` VALUES (37,'Илья','Печуро','ilyshka991','4D26A5BAFD3AE19DA1C6E8D5A5B1FFDDD096411A','ilyapechuro991@gmail.com','active',2.00,0),(39,'Владислав','Винцаревич','vladick','4D26A5BAFD3AE19DA1C6E8D5A5B1FFDDD096411A','vlad@gmail.com','active',0.00,0);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-14 11:38:52
+-- Dump completed on 2018-02-09 22:01:56

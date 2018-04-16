@@ -25,11 +25,13 @@
  ## 6. To be architecture:
  1. Диаграмма компонентов.
 ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/to_be.png)
-2. [Диаграмма классов](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/to_be_cd.pdf)
+2. Диаграмма классов.
+![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/to_be_cd.pdf)
  # Часть 2
  ## As is architecture:
  1. Диаграмма компонентов.
  ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/as_is.png)
- 2. [Диаграмма классов](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/cd.png)
+ 2. Диаграмма классов.
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/images/cd.png)
  # Часть 3
   Как можно заметить разработка идет согласно первоначальному плану, однако в готовом состоянии представлен еще не весь функционал. В частности следует продолжить работу над реализацией сервисов и команд.  

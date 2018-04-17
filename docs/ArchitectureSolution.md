@@ -30,8 +30,7 @@
  ## As is architecture:
  1. Диаграмма компонентов.
  ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is.jpg)
- 2. Диаграмма классов.
- ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/cd.png)
+ 2. [Диаграмма классов](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd.pdf)
  # Часть 3
   Как можно заметить на данном этапе не хватает уровня сервисов, поэтому необходимо его добавить, чтобы переместить
 туда лишнюю логику, а в дао сделать только работу с бд. Так же расширение функционала приведет к увеличению количества 

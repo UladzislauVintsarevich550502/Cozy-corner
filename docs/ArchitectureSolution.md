@@ -29,7 +29,7 @@
  # Часть 2
  ## As is architecture:
  1. Диаграмма компонентов.
- ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is.png)
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is.jpg)
  2. Диаграмма классов.
  ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/cd.png)
  # Часть 3

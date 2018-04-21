@@ -20,13 +20,13 @@ import java.util.List;
  */
 public class StaffDAO implements IStaffDao {
     private static final Logger LOGGER = Logger.getLogger(StaffDAO.class);
-    private static String ADD_STAFF = "INSERT INTO epamcafe.staff (staffLogin, staffPassword) VALUES(?,?)";
-    private static String DELETE_STAFF = "DELETE FROM epamcafe.staff WHERE staffId=?";
-    private static String GET_STAFF_BY_LOGIN_AND_PASSWORD = "SELECT * FROM epamcafe.staff WHERE staffLogin=? AND staffPassword=?";
-    private static String GET_STAFF_BY_LOGIN = "SELECT * FROM epamcafe.staff WHERE staffLogin=?";
-    private static String GET_ALL_STAFF = "SELECT * FROM epamcafe.staff";
-    private static String CHECK_PASSWORD = "SELECT * FROM epamcafe.staff WHERE epamcafe.staff.staffId=? AND epamcafe.staff.staffPassword=?";
-    private static String CHANGE_PASSWORD = "UPDATE epamcafe.staff SET epamcafe.staff.staffPassword=? WHERE epamcafe.staff.staffId=?";
+    private static String ADD_STAFF = "INSERT INTO corner.staff (staffLogin, staffPassword) VALUES(?,?)";
+    private static String DELETE_STAFF = "DELETE FROM corner.staff WHERE staffId=?";
+    private static String GET_STAFF_BY_LOGIN_AND_PASSWORD = "SELECT * FROM corner.staff WHERE staffLogin=? AND staffPassword=?";
+    private static String GET_STAFF_BY_LOGIN = "SELECT * FROM corner.staff WHERE staffLogin=?";
+    private static String GET_ALL_STAFF = "SELECT * FROM corner.staff";
+    private static String CHECK_PASSWORD = "SELECT * FROM corner.staff WHERE corner.staff.staffId=? AND corner.staff.staffPassword=?";
+    private static String CHANGE_PASSWORD = "UPDATE corner.staff SET corner.staff.staffPassword=? WHERE corner.staff.staffId=?";
     private ConnectionPool connectionPool;
     private Connection connection;
     private PreparedStatement statement;

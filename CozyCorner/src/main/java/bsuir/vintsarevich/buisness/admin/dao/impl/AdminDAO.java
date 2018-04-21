@@ -21,13 +21,13 @@ import java.util.List;
  */
 public class AdminDAO implements IAdminDao {
     private static final Logger LOGGER = Logger.getLogger(AdminDAO.class);
-    private static String GET_ADMIN_BY_LOGIN_AND_PASSWORD = "SELECT * FROM epamcafe.admin WHERE adminLogin=? AND adminPassword=?;";
+    private static String GET_ADMIN_BY_LOGIN_AND_PASSWORD = "SELECT * FROM corner.admin WHERE adminLogin=? AND adminPassword=?;";
     private static String ADD_ADMIN = "INSERT INTO admin (adminLogin, adminPassword) VALUES(?,?)";
-    private static String DELETE_ADMIN = "DELETE FROM epamcafe.admin WHERE adminId=?";
-    private static String GET_ALL_ADMINS = "SELECT *FROM epamcafe.admin";
-    private static String GET_ADMIN_BY_LOGIN = "SELECT * FROM epamcafe.admin WHERE admin.adminLogin=?";
-    private static String CHECK_ADMIN_PASSWORD = "SELECT * FROM epamcafe.admin WHERE epamcafe.admin.adminId=? AND epamcafe.admin.adminPassword=?";
-    private static String CHANGE_PASSWORD = "UPDATE epamcafe.admin SET epamcafe.admin.adminPassword=? WHERE epamcafe.admin.adminId=?";
+    private static String DELETE_ADMIN = "DELETE FROM corner.admin WHERE adminId=?";
+    private static String GET_ALL_ADMINS = "SELECT *FROM corner.admin";
+    private static String GET_ADMIN_BY_LOGIN = "SELECT * FROM corner.admin WHERE admin.adminLogin=?";
+    private static String CHECK_ADMIN_PASSWORD = "SELECT * FROM corner.admin WHERE corner.admin.adminId=? AND corner.admin.adminPassword=?";
+    private static String CHANGE_PASSWORD = "UPDATE corner.admin SET corner.admin.adminPassword=? WHERE corner.admin.adminId=?";
     private ConnectionPool connectionPool;
     private Connection connection;
     private ResultSet resultSet;

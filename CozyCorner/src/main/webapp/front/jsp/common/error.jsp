@@ -17,7 +17,7 @@
 
     <%@include file="/front/html/allBundle.html"%>
 
-    <title>Epam Cafe</title>
+    <title>Cozy Corner</title>
 </head>
 <body>
 <!-- Wrapper -->

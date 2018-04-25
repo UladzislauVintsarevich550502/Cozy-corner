@@ -40,6 +40,8 @@ jQuery(document).ready(function ($) {
         today = yyyy + '-' + mm + '-' + dd + 'T' + (hourse + 1) + ':' + minutes;
         $("#dateTime").attr("min", today);
         $("#dateTime").attr("value", today);
+        $(".dateStock").attr("min", today);
+        $(".dateStock").attr("value", today);
     });
 
     $(document).ready(function () {
@@ -68,6 +70,7 @@ jQuery(document).ready(function ($) {
         }
         today = yyyy + '-' + mm + '-' + dd + 'T' + (hourse + 1) + ':' + minutes;
         $("#dateTime").attr("max", today);
+        $(".dateStock").attr("max", today);
     });
 
     $('input#dateTime').on('change', function (e) {
@@ -78,6 +81,17 @@ jQuery(document).ready(function ($) {
 
         } else {
             document.payment.elements['payment_button'].disabled = false;
+        }
+    });
+
+    $('input.dateStock').on('change', function (e) {
+        var hourse = $('input.dateTime').val();
+        var name_enReg = new RegExp('^[0-9]{4}-[0-9]{2}-[0-9]{2}T1[0-9]:[0-9]{2}$');
+        if (name_enReg.test(hourse) == false) {
+            document.getElementsByClassName('stock_submit').disabled = true;
+
+        } else {
+            document.getElementsByClassName('stock_submit').disabled = false;
         }
     });
 });

@@ -15,6 +15,11 @@
             <c:when test="${products!=null}">
                 <c:forEach var="product" items="${products}">
                     <article>
+                        <c:choose>
+                            <c:when test="${product.percent != 0}">
+                                <div class="sale"><p>  ${sale_word}: -${product.percent}% </p></div>
+                            </c:when>
+                        </c:choose>
                         <a href="#0" class="image"><img src="/images/products/${product.imagePath}"
                                                         alt="lorem"/></a>
                         <c:choose>
@@ -25,7 +30,17 @@
                                 <h3>${product.nameEn}</h3>
                             </c:when>
                         </c:choose>
-                        <p>${cost_word}: ${product.cost} BYN</p>
+                        <c:choose>
+                            <c:when test="${product.percent == 0}">
+                                <p>${cost_word}: ${product.cost} BYN</p>
+                            </c:when>
+                            <c:otherwise>
+                                <p>${cost_word}:</p>
+                                <p style="text-decoration:line-through">${product.cost} BYN</p>
+                                <p style="color: red">${product.cost*(1 - product.percent/100)} BYN
+                                    -${product.percent}%</p>
+                            </c:otherwise>
+                        </c:choose>
                         <div class="wall_form" id="popup_message_form_${product.id}"
                              style="display:none;">
                             <c:choose>
@@ -52,14 +67,42 @@
                                 <%@include file="/front/html/editForm.html" %>
                             </form>
                         </div>
+                        <div class="wall_form" id="add_stock_form_${product.id}" style="display:none;">
+                            <form method="post" class="cd-form" id="add-stock-${product.id}"
+                                  action="/cafe.by/add_stock?productId=${product.id}"
+                                  onsubmit="return checkAdd(${product.id})">
+                                <div style="width: 100%; padding-left: auto; padding-right: auto">
+                                    <input type="number" id="percent-${product.id}" name="percent" max="100" min="0">%
+                                    <input id="dateStock-${product.id}" class="dateStock" type="datetime-local"
+                                           name="dateTime" required>
+                                    <span class="validity"></span>
+                                </div>
+                                <input class="admin_action stock_submit" type="submit" value="${send_word}">
+                            </form>
+                        </div>
                         <ul class="actions">
                             <li>
                                 <input class="admin_action" type="button" id="click_mes_form_${product.id}"
                                        value="${view_word}">
                             </li>
+                            <c:choose>
+                                <c:when test="${product.percent==0}">
+                                    <li>
+                                        <input class="admin_action" type="button" id="click_stock_form_${product.id}"
+                                               value="${add_sale}">
+                                    </li>
+                                </c:when>
+                                <c:when test="${locale eq 'ru'}">
+                                    <li>
+                                        <form method="post" action="/cafe.by/delete_stock?productId=${product.id}">
+                                            <input class="admin_action" type="submit" value="${delete_sale}">
+                                        </form>
+                                    </li>
+                                </c:when>
+                            </c:choose>
                             <li>
-                                <input class="admin_action" type="button" id="click_edit_form_${product.id}"
-                                       value="${edit_word}">
+                                <input class="admin_action" type="button" value="${edit_word}"
+                                       id="click_edit_form_${product.id}">
                             </li>
                             <li>
                                 <form method="post" action="/cafe.by/delete_product?productId=${product.id}">
@@ -72,6 +115,9 @@
                                         if ($('#popup_message_form_${product.id}').is(':visible')) {
                                             $("#popup_message_form_${product.id}").slideToggle("slow");
                                         }
+                                        if ($('#add_stock_form_${product.id}').is(':visible')) {
+                                            $("#add_stock_form_${product.id}").slideToggle("slow");
+                                        }
                                         $("#popup_edit_form_${product.id}").slideToggle("slow");
                                         return false;
                                     });
@@ -79,7 +125,20 @@
                                         if ($('#popup_edit_form_${product.id}').is(':visible')) {
                                             $("#popup_edit_form_${product.id}").slideToggle("slow");
                                         }
+                                        if ($('#add_stock_form_${product.id}').is(':visible')) {
+                                            $("#add_stock_form_${product.id}").slideToggle("slow");
+                                        }
                                         $("#popup_message_form_${product.id}").slideToggle("slow");
+                                        return false;
+                                    });
+                                    $("#click_stock_form_${product.id}").click(function () {
+                                        if ($('#popup_message_form_${product.id}').is(':visible')) {
+                                            $("#popup_message_form_${product.id}").slideToggle("slow");
+                                        }
+                                        if ($('#popup_edit_form_${product.id}').is(':visible')) {
+                                            $("#popup_edit_form_${product.id}").slideToggle("slow");
+                                        }
+                                        $("#add_stock_form_${product.id}").slideToggle("slow");
                                         return false;
                                     });
                                 });

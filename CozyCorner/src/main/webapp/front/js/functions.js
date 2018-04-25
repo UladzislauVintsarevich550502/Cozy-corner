@@ -140,13 +140,22 @@ function checkEdit(id) {
     return false;
 }
 
+function checkAdd(id) {
+    var percent = document.getElementById("percent-" + id).value;
+    if (percent > 0 && percent <= 100) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function checkStaffPassword() {
     var password = document.getElementById("staff-new-password").value;
     var passwordReg = new RegExp('[a-zA-Z-_0-9]{6,}');
-    if (passwordReg.test(password)){
+    if (passwordReg.test(password)) {
         document.getElementById('staff-new-password-span').classList.remove('is-visible');
         return true;
-    }else{
+    } else {
         document.getElementById('staff-new-password-span').classList.add('is-visible');
         return false;
     }

@@ -35,6 +35,7 @@ public class DeleteProduct implements ICommand {
             Integer productId = Integer.valueOf(request.getParameter(AttributeParameterName.PRODUCT_ID.getValue()));
             productService.deleteProduct(productId);
             response.sendRedirect(RedirectingCommandName.INDEX.getCommand());
+            ServiceFactory.getInstance().getStockService().deleteStock(productId);
         } catch (ServiceException | IOException e) {
             LOGGER.log(Level.DEBUG, this.getClass() + ":" + e.getMessage());
             jspPageName = JspPageName.ERROR;

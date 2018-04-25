@@ -38,6 +38,7 @@
                     </ul>
                 </li>
                 <li><a href="/cafe.by/edit_clients">${list_clients_word}</a></li>
+                <li><a href="/cafe.by/stock_product">${stock}</a></li>
                 <li><a href="/cafe.by/staff_list">${list_personal_word}</a></li>
                 <c:choose>
                     <c:when test="${user.isMain == 1}">

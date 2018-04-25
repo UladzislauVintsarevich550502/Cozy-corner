@@ -8,6 +8,7 @@ import bsuir.vintsarevich.buisness.orderproduct.service.IOrderProductService;
 import bsuir.vintsarevich.buisness.product.service.IProductService;
 import bsuir.vintsarevich.command.ICommand;
 import bsuir.vintsarevich.entity.Product;
+import bsuir.vintsarevich.entity.Stock;
 import bsuir.vintsarevich.entity.User;
 import bsuir.vintsarevich.enumeration.AttributeParameterName;
 import bsuir.vintsarevich.enumeration.JspPageName;
@@ -64,9 +65,13 @@ public class AddBasketProduct implements ICommand {
                     productId = Integer.valueOf(request.getParameter(AttributeParameterName.PRODUCT_ID.getValue() + "_" + product.getId()));
                     productCount = Integer.valueOf(request.getParameter(AttributeParameterName.NUMBER_FOR_ADD.getValue() + "_" + product.getId()));
 
+                    Stock stock = serviceFactory.getStockService().getStockDateByProductId(product.getId());
                     Double orderCost = productService.getProductById(productId).getCost();
+                    if (stock != null) {
+                        orderCost *= (1 - (double) stock.getPercent() / 100);
+                    }
                     Integer orderId = orderDao.getOrderIdByClientId(clientId);
-                    if (productCount.equals(0)) {
+                    if (productCount <= 0) {
                         number++;
                     } else {
                         if (orderProductDao.findOrderProduct(productId, orderId)) {

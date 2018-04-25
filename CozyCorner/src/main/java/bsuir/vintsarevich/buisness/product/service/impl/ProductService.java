@@ -71,7 +71,7 @@ public class ProductService implements IProductService {
      */
     @Override
     public boolean deleteProduct(Integer id) throws ServiceException {
-        LOGGER.log(Level.DEBUG, "Product DAO: Delete product start");
+        LOGGER.log(Level.DEBUG, "Product Service: Delete product start");
         try {
             LOGGER.log(Level.DEBUG, "ProductService: finish delete products");
             return daoFactory.getProductDao().deleteProduct(id);

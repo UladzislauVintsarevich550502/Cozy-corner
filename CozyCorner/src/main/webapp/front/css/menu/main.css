@@ -14,6 +14,16 @@ li#client_s {
     border-radius: 4px;
 }
 
+div.sale {
+    position: absolute;
+    z-index: 1;
+    font-size: 23px;
+    font-family: fantasy;
+    color: white;
+    border-radius: 20px;
+    background: #ff0808;
+}
+
 a.podmenu {
     margin-left: 14px;
 }

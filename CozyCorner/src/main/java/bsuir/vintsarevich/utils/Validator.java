@@ -71,6 +71,12 @@ public class Validator {
         }
     }
 
+    public final static void matchPercent(Integer percent) throws ValidatorException {
+        if (percent < 0 || percent > 100) {
+            throw new ValidatorException("percent error");
+        }
+    }
+
     /**
      * @param strings
      * @throws ValidatorException

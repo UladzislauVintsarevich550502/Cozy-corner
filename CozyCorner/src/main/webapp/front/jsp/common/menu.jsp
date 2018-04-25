@@ -39,6 +39,7 @@
                         <li><a class="podmenu" href="/cafe.by/find_by_type?product_type=soda">${soda_word}</a></li>
                     </ul>
                 </li>
+                <li><a href="/cafe.by/stock_product">${stock}</a></li>
             </ul>
         </nav>
 

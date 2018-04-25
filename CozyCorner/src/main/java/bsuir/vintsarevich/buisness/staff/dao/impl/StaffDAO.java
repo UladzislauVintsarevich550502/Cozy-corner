@@ -22,7 +22,7 @@ public class StaffDAO implements IStaffDao {
     private static final Logger LOGGER = Logger.getLogger(StaffDAO.class);
     private static String ADD_STAFF = "INSERT INTO corner.staff (staffLogin, staffPassword) VALUES(?,?)";
     private static String DELETE_STAFF = "DELETE FROM corner.staff WHERE staffId=?";
-    private static String GET_STAFF_BY_LOGIN_AND_PASSWORD = "SELECT * FROM corner.staff WHERE staffLogin=? AND staffPassword=?";
+    private static String GET_STAFF_BY_LOGIN_AND_PASSWORD = "SELECT * FROM corner.staff WHERE corner.staff.staffLogin=? AND corner.staff.staffPassword=?";
     private static String GET_STAFF_BY_LOGIN = "SELECT * FROM corner.staff WHERE staffLogin=?";
     private static String GET_ALL_STAFF = "SELECT * FROM corner.staff";
     private static String CHECK_PASSWORD = "SELECT * FROM corner.staff WHERE corner.staff.staffId=? AND corner.staff.staffPassword=?";

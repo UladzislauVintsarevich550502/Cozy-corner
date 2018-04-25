@@ -57,6 +57,9 @@ public final class CommandProvider {
         repository.put(CommandName.CHANGE_STAFF, new ChangeStaff());
         repository.put(CommandName.CHANGE_ADMIN, new ChangeAdmin());
         repository.put(CommandName.RESET_FORM, new ResetForm());
+        repository.put(CommandName.ADD_STOCK, new AddStock());
+        repository.put(CommandName.DELETE_STOCK, new DeleteStock());
+        repository.put(CommandName.STOCK_PRODUCT, new StockProduct());
     }
 
     /**

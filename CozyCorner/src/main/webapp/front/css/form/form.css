@@ -450,7 +450,12 @@ input#delete-button-from-basket {
 }
 
 input#add-button-to-basket {
-    margin-top: 30px;
+    position: fixed;
+    right: 1%;
+    bottom: 5%;
+    box-shadow: none;
+    background: #d700daa8;
+    color: white!important;
 }
 
 input[type="submit"].cd-exit {

@@ -14,6 +14,7 @@ import bsuir.vintsarevich.exception.dao.DaoException;
 import bsuir.vintsarevich.exception.service.ServiceException;
 import bsuir.vintsarevich.factory.dao.DaoFactory;
 import bsuir.vintsarevich.factory.service.ServiceFactory;
+import bsuir.vintsarevich.utils.Common;
 import bsuir.vintsarevich.utils.SessionElements;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -49,7 +50,7 @@ public class Payment implements ICommand {
             String dateTime = request.getParameter("dateTime");
             Double pointToPayment = Double.valueOf(request.getParameter("point_to_payment"));
             Integer clientId = ((User) request.getSession().getAttribute("user")).getId();
-            Double orderCost = orderService.getOrderCost(clientId);
+            Double orderCost = Common.getCommonCost(request);
             Integer orderId = orderDao.getOrderIdByClientId(clientId);
 
             if (orderCost != 0 && orderCost != null) {

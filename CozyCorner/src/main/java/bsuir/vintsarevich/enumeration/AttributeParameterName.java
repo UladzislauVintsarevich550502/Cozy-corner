@@ -54,7 +54,9 @@ public enum AttributeParameterName {
     ADMIN_PASSWORD("admin_password"),
     ADD_ADMIN_ERROR("add_admin_error"),
     CODE("code"),
-    CLIENT("client");
+    CLIENT("client"),
+    ADD_STOCK("admin"),
+    DELETE_STOCK("admin");
 
 
     private String value;

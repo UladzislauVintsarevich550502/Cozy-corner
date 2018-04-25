@@ -17,6 +17,11 @@
                 <c:when test="${products!=null}">
                     <c:forEach var="product" items="${products}">
                         <article>
+                            <c:choose>
+                                <c:when test="${product.percent != 0}">
+                                    <div class="sale"><p>  ${sale_word}: -${product.percent}%  </p></div>
+                                </c:when>
+                            </c:choose>
                             <a href="#" class="image"><img src="/images/products/${product.imagePath}"
                                                            alt="lorem"/></a>
                             <c:choose>
@@ -27,7 +32,17 @@
                                     <h3>${product.nameEn}</h3>
                                 </c:when>
                             </c:choose>
-                            <p>${cost_word}: ${product.cost} BYN</p>
+                            <c:choose>
+                                <c:when test="${product.percent == 0}">
+                                    <p>${cost_word}: ${product.cost} BYN</p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p>${cost_word}:</p>
+                                    <p style="text-decoration:line-through">${product.cost} BYN</p>
+                                    <p style="color: red">${product.cost*(1 - product.percent/100)} BYN
+                                        -${product.percent}%</p>
+                                </c:otherwise>
+                            </c:choose>
                             <div class="wall_form" id="popup_message_form_${product.id}"
                                  style="display:none;">
                                 <c:choose>

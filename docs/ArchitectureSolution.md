@@ -22,16 +22,22 @@
   - Авторизация: защита ресурсов посредством авторизации вызывающей стороны.
   - Сетевое взаимодействие: выбирать соответствующие транспортные протоколы
   - Хэширование: применить алгоритм SHA-1, который позволяет шифровать пароли без возможности разшифрования.
- ## 6. To be architecture:
- 1. Диаграмма компонентов.
-![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/to_be.png)
-2. [Диаграмма классов](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/to_be_cd.pdf)
  # Часть 2
  ## As is architecture:
  1. Диаграмма компонентов.
  ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is.jpg)
- 2. [Диаграмма классов](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd.pdf)
+ 2. Диаграмма классов 
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd1.jpg)
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd2.jpg)
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd3.jpg)
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/as_is_cd4.jpg)
+ ## To be architecture
+ 1. Диаграмма компонентов
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/to_be.png)
+ 2. Диаграмма классов. Дополнительный уровень сервисов.
+ ![alt text](https://github.com/UladzislauVintsarevich550502/Cozy-corner/blob/master/docs/uml/to_be_cd.jpg)
  # Часть 3
-  Как можно заметить на данном этапе не хватает уровня сервисов, поэтому необходимо его добавить, чтобы переместить
-туда лишнюю логику, а в дао сделать только работу с бд. Так же расширение функционала приведет к увеличению количества 
-классов.  
+ Основной проблемой текущей реализации является отсутствие уровня сервисов, что приводит к перегруженности уровня DAO. При этом данный уровень должен являться лишь прослойкой между БД и системой. DAO абстрагирует сущности системы и делает их отображение на БД, определяет общие методы использования соединения, его получение, закрытие и (или) возвращение в Connection Pool. Т.е. в общем случае DAO должен взаимодействовать только с БД и ConnectionPool. 
+Причиной возникновения данной проблемы является ошибка на этапе проектирования.
+Путем рещения данной проблемы может быть добавление еще одного промежуточного уровня, уровня сервисов, который будет связывать уровень DAO с остальным функционалом приложения. Тем самым мы сможем привести уровень DAO к более традиционному виду и облегчить тестирование приложения за счет того, что в уровень сервисов можно встроить Logger, который будет отображать состояние системы в конкретный момент времени, что поможет причинами тех или иных сбоев в работе приложения.
+Также добавление уровня сервисов улучшит расширяемость функционала приложения. Теперь для добавления нового функционала не придется переписывать имеющийся код, а достаточно будет добавить еще один сервис.

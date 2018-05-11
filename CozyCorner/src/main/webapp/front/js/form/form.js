@@ -47,7 +47,8 @@ jQuery(document).ready(function ($) {
         ($i == 1) ? $i = 2 : $i = 1;
         (1 == $i) ? $(this).css('backgroundImage', 'url(/images/icon/visible.png)') : $(this).css('backgroundImage', 'url(/images/icon/not_visible.png)');
 //фокус и перемещение курсора в конец поля ввода
-        $password_field.putCursorAtEnd();
+        $password_field.focus();
+        //$password_field.putCursorAtEnd();
     });
 
 //показать форму востановления пароля

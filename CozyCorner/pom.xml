@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>bsuir.vintsarevich</groupId>
-  <artifactId>EpamCafe</artifactId>
+  <artifactId>Corner</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>EpamCafe Maven Webapp</name>
+  <name>Corner Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -57,9 +57,14 @@
       <version>6.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.12.0</version>
+    </dependency>
   </dependencies>
   <build>
-    <finalName>EpamCafe</finalName>
+    <finalName>Corner</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

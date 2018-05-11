@@ -11,7 +11,7 @@ public class ResourceManagerTest {
 
     private final String correctUser = "root";
     private final String correctPassword = "root";
-    private final String correctUrl = "jdbc:mysql://localhost:3306/epamcafe";
+    private final String correctUrl = "jdbc:mysql://localhost:3306/corner";
 
     @Test
     public void correctGetUser() {

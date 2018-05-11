@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CozyCorner" />
         <module name="EpamCafe" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CozyCorner" target="1.7" />
       <module name="EpamCafe" target="1.7" />
     </bytecodeTargetLevel>
   </component>

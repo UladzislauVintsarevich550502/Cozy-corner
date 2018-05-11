@@ -2,9 +2,7 @@ package bsuir.vintsarevich.utils;
 
 import bsuir.vintsarevich.buisness.client.service.IClientService;
 import bsuir.vintsarevich.buisness.review.service.IReviewService;
-import bsuir.vintsarevich.entity.Client;
-import bsuir.vintsarevich.entity.Product;
-import bsuir.vintsarevich.entity.Review;
+import bsuir.vintsarevich.entity.*;
 import bsuir.vintsarevich.enumeration.AttributeParameterName;
 import bsuir.vintsarevich.exception.service.ServiceException;
 import bsuir.vintsarevich.factory.service.ServiceFactory;
@@ -67,11 +65,19 @@ public class Common {
                     (Integer) request.getSession().getAttribute("currentPage") == 0) {
                 request.getSession().setAttribute("currentPage", 1);
             }
+            ServiceFactory serviceFactory = ServiceFactory.getInstance();
             int currentPage = (Integer) request.getSession().getAttribute("currentPage");
             List<Product> pageProducts = new ArrayList<>();
             for (int i = (currentPage - 1) * NUMBER_OF_PRODUCT_ON_PAGE; i < currentPage * NUMBER_OF_PRODUCT_ON_PAGE
                     && i < allProducts.size(); i++) {
                 allProducts.get(i).setType(typeConverter(allProducts.get(i).getType()));
+                Stock stock = serviceFactory.getStockService().getStockDateByProductId(allProducts.get(i).getId());
+                if (stock != null) {
+                    allProducts.get(i).setPercent(stock.getPercent());
+                    allProducts.get(i).setStockDate(stock.getDate());
+                } else {
+                    allProducts.get(i).setPercent(0);
+                }
                 pageProducts.add(allProducts.get(i));
             }
             request.setAttribute("products", pageProducts);
@@ -83,10 +89,32 @@ public class Common {
      * @param type
      * @return String
      */
-    public static String typeConverter(String type){
-        if(type.equals("soda") || type.equals("water") || type.equals("soup") || type.equals("hotDrink") || type.equals("juice")){
+    public static String typeConverter(String type) {
+        if (type.equals("soda") || type.equals("water") || type.equals("soup") || type.equals("hotDrink") || type.equals("juice")) {
             return "volume";
         }
         return "weight";
+    }
+
+    public static Double getCommonCost(HttpServletRequest request) {
+        try {
+            ServiceFactory serviceFactory = ServiceFactory.getInstance();
+            Integer clientId = ((User) request.getSession().getAttribute(AttributeParameterName.USER.getValue())).getId();
+            Integer orderId = serviceFactory.getOrderService().getOrderIdByClientId(clientId);
+            List<Product> products = serviceFactory.getProducteService().getProductByOrderId(orderId);
+            Double commonCost = 0.0;
+            for (Product product : products) {
+                Double cost = product.getCost();
+                Stock stock = serviceFactory.getStockService().getStockDateByProductId(product.getId());
+                if (stock != null) {
+                    cost *= (1 - (double) stock.getPercent() / 100);
+                }
+                commonCost += Math.rint(100 * (cost * product.getNumber())) / 100;
+            }
+            return commonCost;
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -7,12 +7,14 @@ import bsuir.vintsarevich.command.ICommand;
 import bsuir.vintsarevich.command.impl.redirecting.SignOut;
 import bsuir.vintsarevich.entity.Order;
 import bsuir.vintsarevich.entity.Product;
+import bsuir.vintsarevich.entity.Stock;
 import bsuir.vintsarevich.entity.User;
 import bsuir.vintsarevich.enumeration.AttributeParameterName;
 import bsuir.vintsarevich.enumeration.JspPageName;
 import bsuir.vintsarevich.enumeration.RedirectingCommandName;
 import bsuir.vintsarevich.exception.service.ServiceException;
 import bsuir.vintsarevich.factory.service.ServiceFactory;
+import bsuir.vintsarevich.utils.Common;
 import bsuir.vintsarevich.utils.SessionElements;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -51,6 +53,13 @@ public class Basket implements ICommand {
 
             if (tempProducts != null) {
                 for (Product product : tempProducts) {
+                    Stock stock = serviceFactory.getStockService().getStockDateByProductId(product.getId());
+                    if (stock != null) {
+                        product.setPercent(stock.getPercent());
+                        product.setStockDate(stock.getDate());
+                    } else {
+                        product.setPercent(0);
+                    }
                     product.setOrdered(0);
                     product.setCommonCost();
                 }
@@ -70,7 +79,7 @@ public class Basket implements ICommand {
             }
             if (allProducts.size() > 0 && orderId != null) {
                 request.setAttribute("products", allProducts);
-                request.setAttribute("orderCost", orderService.getOrderCost(clientId));
+                request.setAttribute("orderCost", Common.getCommonCost(request));
                 request.setAttribute("orders", orders);
                 request.setAttribute("point", clientService.getClientById(clientId).getPoint());
                 rewrite(request);

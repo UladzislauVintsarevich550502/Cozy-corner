@@ -20,13 +20,13 @@ import java.sql.SQLException;
 public class OrderProductDAO implements IOrderProductDao {
 
     private static final Logger LOGGER = Logger.getLogger(OrderDAO.class);
-    private static String ADD_ORDER_PRODUCT = "INSERT INTO epamcafe.orderproducts (orderId, productId, productCount) VALUES(?,?,?) ";
-    private static String DELETE_ORDER_PRODUCT = "DELETE FROM epamcafe.orderproducts WHERE (orderproducts.orderId, orderproducts.productId)=(?,?)";
-    private static String EDIT_ORDER_PRODUCT = "UPDATE epamcafe.orderproducts SET epamcafe.orderproducts.productCount = (epamcafe.orderproducts.productCount + ?) " +
-            "WHERE epamcafe.orderproducts.productId = ? AND epamcafe.orderproducts.orderId=?";
-    private static String FIND_ORDER_PRODUCT = "SELECT * FROM epamcafe.orderproducts WHERE epamcafe.orderproducts.productId=? AND epamcafe.orderproducts.orderId=?";
-    private static String FIND_ORDER_PRODUCT_COUNT = "SELECT epamcafe.orderproducts.productCount FROM epamcafe.orderproducts WHERE epamcafe.orderproducts.productId=?";
-    private static String EDIT_ORDER_PRODUCT_PAYMENT = "UPDATE epamcafe.orderproducts SET epamcafe.orderproducts.orderId=? WHERE epamcafe.orderproducts.orderId=?";
+    private static String ADD_ORDER_PRODUCT = "INSERT INTO corner.orderproducts (orderId, productId, productCount) VALUES(?,?,?) ";
+    private static String DELETE_ORDER_PRODUCT = "DELETE FROM corner.orderproducts WHERE (orderproducts.orderId, orderproducts.productId)=(?,?)";
+    private static String EDIT_ORDER_PRODUCT = "UPDATE corner.orderproducts SET corner.orderproducts.productCount = (corner.orderproducts.productCount + ?) " +
+            "WHERE corner.orderproducts.productId = ? AND corner.orderproducts.orderId=?";
+    private static String FIND_ORDER_PRODUCT = "SELECT * FROM corner.orderproducts WHERE corner.orderproducts.productId=? AND corner.orderproducts.orderId=?";
+    private static String FIND_ORDER_PRODUCT_COUNT = "SELECT corner.orderproducts.productCount FROM corner.orderproducts WHERE corner.orderproducts.productId=?";
+    private static String EDIT_ORDER_PRODUCT_PAYMENT = "UPDATE corner.orderproducts SET corner.orderproducts.orderId=? WHERE corner.orderproducts.orderId=?";
     private ConnectionPool connectionPool;
     private Connection connection;
     private ResultSet resultSet;

@@ -22,22 +22,22 @@ import java.util.List;
 public class OrderDAO implements IOrderDao {
 
     private static final Logger LOGGER = Logger.getLogger(OrderDAO.class);
-    public static String ADD_ORDER = "INSERT INTO epamcafe.order (orderType, orderCost,clientId) VALUES(?,?,?)";
-    public static String PAYMENT_ORDER = "INSERT INTO epamcafe.order (orderType,orderDate, orderCost,clientId) VALUES(?,?,?,?)";
-    public static String FIND_LAST = "SELECT * FROM epamcafe.order WHERE orderId=LAST_INSERT_ID()";
-    public static String GET_ORDERID_BY_CLIENTID = "SELECT epamcafe.order.orderId " +
-            "FROM(client join epamcafe.order ON client.clientId = epamcafe.order.clientId)" +
+    public static String ADD_ORDER = "INSERT INTO corner.order (orderType, orderCost,clientId) VALUES(?,?,?)";
+    public static String PAYMENT_ORDER = "INSERT INTO corner.order (orderType,orderDate, orderCost,clientId) VALUES(?,?,?,?)";
+    public static String FIND_LAST = "SELECT * FROM corner.order WHERE orderId=LAST_INSERT_ID()";
+    public static String GET_ORDERID_BY_CLIENTID = "SELECT corner.order.orderId " +
+            "FROM(client join corner.order ON client.clientId = corner.order.clientId)" +
             " WHERE client.clientId = ?;";
-    public static String GET_ORDER_BY_CLIENTID = "SELECT * FROM(client join epamcafe.order ON client.clientId = epamcafe.order.clientId)" +
+    public static String GET_ORDER_BY_CLIENTID = "SELECT * FROM(client join corner.order ON client.clientId = corner.order.clientId)" +
             " WHERE client.clientId = ?;";
-    public static String EDIT_ORDER = "UPDATE epamcafe.order SET epamcafe.order.orderCost = (epamcafe.order.orderCost + ?) " +
-            "WHERE epamcafe.order.orderId = ?";
-    public static String CLEAR_ORDER = "UPDATE epamcafe.order SET epamcafe.order.orderCost=0.0 WHERE epamcafe.order.orderId=?";
-    public static String GET_ORDERS_BY_CLIENTID = " SELECT * FROM epamcafe.order WHERE (epamcafe.order.orderType = 'ordered' OR epamcafe.order.orderType='payment') AND epamcafe.order.clientId=?";
-    public static String GET_ALL_ORDERS_BY_CLIENTID = "SELECT * FROM epamcafe.order WHERE epamcafe.order.clientId = ?";
-    private static final String GET_ALL_ORDERED_ORDERS = "SELECT * FROM epamcafe.order WHERE orderType='ordered' OR orderType='payment'";
-    private static final String DELETE_ORDER = "DELETE FROM epamcafe.order WHERE orderId=?";
-    private static final String GET_ORDER_BY_ORDERID = "SELECT * FROM epamcafe.order WHERE orderId=?";
+    public static String EDIT_ORDER = "UPDATE corner.order SET corner.order.orderCost = (corner.order.orderCost + ?) " +
+            "WHERE corner.order.orderId = ?";
+    public static String CLEAR_ORDER = "UPDATE corner.order SET corner.order.orderCost=0.0 WHERE corner.order.orderId=?";
+    public static String GET_ORDERS_BY_CLIENTID = " SELECT * FROM corner.order WHERE (corner.order.orderType = 'ordered' OR corner.order.orderType='payment') AND corner.order.clientId=?";
+    public static String GET_ALL_ORDERS_BY_CLIENTID = "SELECT * FROM corner.order WHERE corner.order.clientId = ?";
+    private static final String GET_ALL_ORDERED_ORDERS = "SELECT * FROM corner.order WHERE orderType='ordered' OR orderType='payment'";
+    private static final String DELETE_ORDER = "DELETE FROM corner.order WHERE orderId=?";
+    private static final String GET_ORDER_BY_ORDERID = "SELECT * FROM corner.order WHERE orderId=?";
     private ConnectionPool connectionPool;
     private Connection connection;
     private ResultSet resultSet;

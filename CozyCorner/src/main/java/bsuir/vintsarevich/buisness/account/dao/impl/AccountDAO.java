@@ -18,12 +18,12 @@ import java.sql.SQLException;
 public class AccountDAO implements IAccountDao {
 
     private static final Logger LOGGER = Logger.getLogger(AccountDAO.class);
-    public static String ADD_ACCOUNT = "INSERT INTO epamcafe.account " +
+    public static String ADD_ACCOUNT = "INSERT INTO corner.account " +
             "(accountNumber,accountCredit,clientId) VALUES(?,?,?)";
-    public static String CHECK_ACCOUNT_NUMBER = "SELECT * FROM epamcafe.account WHERE accountNumber = ?";
-    public static String EDIT_ACCOUNT = "UPDATE epamcafe.account SET epamcafe.account.accountCredit = " +
-            "(epamcafe.account.accountCredit - ?) WHERE epamcafe.account.clientId = ?";
-    public static String FIND_ACCOUNT = "SELECT * FROM epamcafe.account WHERE epamcafe.account.clientId=?";
+    public static String CHECK_ACCOUNT_NUMBER = "SELECT * FROM corner.account WHERE accountNumber = ?";
+    public static String EDIT_ACCOUNT = "UPDATE corner.account SET corner.account.accountCredit = " +
+            "(corner.account.accountCredit - ?) WHERE corner.account.clientId = ?";
+    public static String FIND_ACCOUNT = "SELECT * FROM corner.account WHERE corner.account.clientId=?";
     private ConnectionPool connectionPool;
     private Connection connection;
     private ResultSet resultSet;

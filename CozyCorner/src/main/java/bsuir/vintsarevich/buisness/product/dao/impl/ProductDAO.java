@@ -20,19 +20,19 @@ import java.util.List;
  */
 public class ProductDAO implements IProductDao {
     private static final Logger LOGGER = Logger.getLogger(ProductDAO.class);
-    public static String GET_ALL_PRODUCTS = "SELECT * FROM epamcafe.product;";
+    public static String GET_ALL_PRODUCTS = "SELECT * FROM corner.product;";
     public static String ADD_PRODUCT = "INSERT INTO product (productType,productNameRu,productNameEn,productWeight,productCost," +
             "productDescriptionRu,productDescriptionEn,productImage) VALUES(?,?,?,?,?,?,?,?);";
     public static String EDIT_PRODUCT = "UPDATE product SET productType=?,productNameRu=?,productNameEn=?,productWeight=?,productCost=?," +
             "productDescriptionRu=?,productDescriptionEn=?,productImage=? WHERE productId=?;";
-    public static String GET_PRODUCT_BY_ID = "SELECT * FROM epamcafe.product WHERE productId=?";
-    public static String GET_PRODUCT_BY_TYPE = "SELECT * FROM epamcafe.product WHERE productType=?";
-    public static String DELETE_PRODUCT = "DELETE FROM epamcafe.product WHERE productId=?";
+    public static String GET_PRODUCT_BY_ID = "SELECT * FROM corner.product WHERE productId=?";
+    public static String GET_PRODUCT_BY_TYPE = "SELECT * FROM corner.product WHERE productType=?";
+    public static String DELETE_PRODUCT = "DELETE FROM corner.product WHERE productId=?";
     public static String GET_PRODUCT_BY_ORDERID = "SELECT product.productId, product.productType,product.productNameRu," +
             "product.productNameEn,product.productWeight,product.productCost," +
             "product.productDescriptionRu,productDescriptionEn,product.productImage,orderproducts.productCount " +
-            "FROM(((client join epamcafe.order ON client.clientId = epamcafe.order.clientId) JOIN orderproducts" +
-            " ON epamcafe.order.orderId = orderproducts.orderId) JOIN product " +
+            "FROM(((client join corner.order ON client.clientId = corner.order.clientId) JOIN orderproducts" +
+            " ON corner.order.orderId = orderproducts.orderId) JOIN product " +
             "ON product.productId = orderproducts.productId) WHERE order.orderId = ?";
     private ConnectionPool connectionPool;
     private Connection connection;

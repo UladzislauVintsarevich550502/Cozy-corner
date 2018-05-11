@@ -16,6 +16,8 @@ import bsuir.vintsarevich.buisness.review.service.IReviewService;
 import bsuir.vintsarevich.buisness.review.service.impl.ReviewService;
 import bsuir.vintsarevich.buisness.staff.service.IStaffService;
 import bsuir.vintsarevich.buisness.staff.service.impl.StaffService;
+import bsuir.vintsarevich.buisness.stock.service.IStockService;
+import bsuir.vintsarevich.buisness.stock.service.impl.StockService;
 
 /**
  * class ServiceFactory created to choose service for working
@@ -30,8 +32,13 @@ public class ServiceFactory {
     private final IOrderService orderService = new OrderService();
     private final IReviewService reviewService = new ReviewService();
     private final IStaffService staffService = new StaffService();
+    private final IStockService stockService = new StockService();
 
     private ServiceFactory() {
+    }
+
+    public IStockService getStockService() {
+        return stockService;
     }
 
     /**

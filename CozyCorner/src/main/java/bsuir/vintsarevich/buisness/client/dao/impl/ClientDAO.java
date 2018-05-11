@@ -19,21 +19,21 @@ import java.util.List;
  * class ClientDAO created for working with clients
  */
 public class ClientDAO implements IClientDao {
-    private final static String SET_POINTS = "UPDATE epamcafe.client SET clientPoint=? WHERE clientId=?";
-    private final static String GET_POINTS = "SELECT * FROM epamcafe.client WHERE clientId=?";
-    private final static String CLEAR_POINTS = "UPDATE epamcafe.client SET clientPoint=NULL WHERE clientId=?";
-    private static String GET_CLIENT_BY_LOGIN_AND_PASSWORD = "SELECT * FROM epamcafe.client WHERE clientLogin=? AND clientPassword=?;";
-    private static String GET_CLIENT_BY_LOGIN = "SELECT * FROM epamcafe.client WHERE clientLogin=?";
-    private static String GET_CLIENT_BY_ID = "SELECT * FROM epamcafe.client WHERE clientId=?";
+    private final static String SET_POINTS = "UPDATE corner.client SET clientPoint=? WHERE clientId=?";
+    private final static String GET_POINTS = "SELECT * FROM corner.client WHERE clientId=?";
+    private final static String CLEAR_POINTS = "UPDATE corner.client SET clientPoint=NULL WHERE clientId=?";
+    private static String GET_CLIENT_BY_LOGIN_AND_PASSWORD = "SELECT * FROM corner.client WHERE clientLogin=? AND clientPassword=?;";
+    private static String GET_CLIENT_BY_LOGIN = "SELECT * FROM corner.client WHERE clientLogin=?";
+    private static String GET_CLIENT_BY_ID = "SELECT * FROM corner.client WHERE clientId=?";
     private static String ADD_CLIENT = "INSERT INTO client (clientName,clientSurname,clientLogin,clientPassword,clientEmail," +
             "clientStatus,clientPoint) VALUES(?,?,?,?,?,?,?);";
-    private static String DELETE_CLIENT = "DELETE FROM epamcafe.client WHERE clientId=?";
-    private static String GET_ALL_CLIENTS = "SELECT * FROM epamcafe.client";
-    private static String CHANGE_STATUS = " UPDATE epamcafe.client SET epamcafe.client.clientStatus=? WHERE epamcafe.client.clientId=?";
-    private static String CHECK_PASSWORD = "SELECT * FROM epamcafe.client WHERE epamcafe.client.clientId=? AND epamcafe.client.clientPassword=?";
-    private static String CHANGE_PASSWORD = "UPDATE epamcafe.client SET epamcafe.client.clientPassword=? WHERE epamcafe.client.clientId=?";
-    private static String EDIT_POINT = "UPDATE epamcafe.client SET epamcafe.client.clientPoint=(epamcafe.client.clientPoint-?) WHERE epamcafe.client.clientId=?";
-    private static String GET_CLIENT_BY_EMAIL = "SELECT * FROM epamcafe.client WHERE client.clientEmail=?";
+    private static String DELETE_CLIENT = "DELETE FROM corner.client WHERE clientId=?";
+    private static String GET_ALL_CLIENTS = "SELECT * FROM corner.client";
+    private static String CHANGE_STATUS = " UPDATE corner.client SET corner.client.clientStatus=? WHERE corner.client.clientId=?";
+    private static String CHECK_PASSWORD = "SELECT * FROM corner.client WHERE corner.client.clientId=? AND corner.client.clientPassword=?";
+    private static String CHANGE_PASSWORD = "UPDATE corner.client SET corner.client.clientPassword=? WHERE corner.client.clientId=?";
+    private static String EDIT_POINT = "UPDATE corner.client SET corner.client.clientPoint=(corner.client.clientPoint-?) WHERE corner.client.clientId=?";
+    private static String GET_CLIENT_BY_EMAIL = "SELECT * FROM corner.client WHERE client.clientEmail=?";
     private static final Logger LOGGER = Logger.getLogger(ClientDAO.class);
     private ConnectionPool connectionPool;
     private Connection connection;

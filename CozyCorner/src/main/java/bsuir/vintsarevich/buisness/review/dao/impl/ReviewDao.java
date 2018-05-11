@@ -20,10 +20,10 @@ import java.util.List;
  */
 public class ReviewDao implements IReviewDao {
     private static final Logger LOGGER = Logger.getLogger(ReviewDao.class);
-    private static final String ADD_REVIEW = "INSERT INTO epamcafe.review (reviewText, reviewMark, clientId) VALUES (?, ?, ?)";
-    private static final String DELETE_REVIEW = "DELETE FROM epamcafe.review WHERE reviewId=?";
-    private static final String EDIT_REVIEW = "UPDATE epamcafe.review SET reviewText = ?, reviewMark = ? WHERE reviewId = ?";
-    private static final String GET_ALL_REVIEWS = "SELECT * FROM epamcafe.review";
+    private static final String ADD_REVIEW = "INSERT INTO corner.review (reviewText, reviewMark, clientId) VALUES (?, ?, ?)";
+    private static final String DELETE_REVIEW = "DELETE FROM corner.review WHERE reviewId=?";
+    private static final String EDIT_REVIEW = "UPDATE corner.review SET reviewText = ?, reviewMark = ? WHERE reviewId = ?";
+    private static final String GET_ALL_REVIEWS = "SELECT * FROM corner.review";
     private ConnectionPool connectionPool;
     private Connection connection;
     private PreparedStatement statement;

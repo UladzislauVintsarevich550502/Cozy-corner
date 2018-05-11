@@ -14,6 +14,7 @@ public enum RedirectingCommandName
     ADMIN_LIST("/cafe.by/admin_list"),
     FIND_BY_TYPE("/cafe.by/find_by_type"),
     SEARCH_PRODUCT("/cafe.by/search_product"),
+    STOCK_PRODUCT("/cafe.by/stock_product"),
     STAFF_LIST("/cafe.by/staff_list"),
     RESET_FORM("/cafe.by/reset_form");
 

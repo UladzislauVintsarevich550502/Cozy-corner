@@ -29,5 +29,11 @@
     ####  До ![alt text](http://dl4.joxi.net/drive/2018/05/12/0030/2688/2009728/28/1dc2f35aab.png)
     ####  После ![alt text](http://dl3.joxi.net/drive/2018/05/12/0030/2688/2009728/28/bdce80db77.png)
     ### Фиксация кнопки добавления товаров в корзину с целью удобства(20 минут)
-    ####  До ![alt text](http://dl3.joxi.net/drive/2018/05/12/0030/2688/2009728/28/1dbc7c3e1f.png)
-    ####  После ![alt text](http://dl4.joxi.net/drive/2018/05/12/0030/2688/2009728/28/f7a159fdf6.png)
+    ####  До ![alt text](http://dl4.joxi.net/drive/2018/05/12/0030/2688/2009728/28/f7a159fdf6.png)
+    ####  После ![alt text](http://dl3.joxi.net/drive/2018/05/12/0030/2688/2009728/28/1dbc7c3e1f.png)
+    ### Добавление кнопки видимости(20 минут)
+    ####  До ![alt text](http://dl4.joxi.net/drive/2018/05/12/0030/2688/2009728/28/8fda23ce4c.png)
+    ####  После ![alt text](http://dl3.joxi.net/drive/2018/05/12/0030/2688/2009728/28/2036194c80.png)
+* ##  Добавления подсказок в поля ввода
+    ####  До ![alt text](http://dl3.joxi.net/drive/2018/05/12/0030/2688/2009728/28/cc4d1bfd72.png)
+    ####  После ![alt text](http://dl4.joxi.net/drive/2018/05/12/0030/2688/2009728/28/da4384918c.png)
